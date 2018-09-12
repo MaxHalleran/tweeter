@@ -1,0 +1,29 @@
+.new-tweet {
+  background-color: #eee;
+  margin: 2em;
+  border-radius: 5px;
+  border: 1px solid #d6d6d6;
+  padding: 0 0 0.5em 0.5em;
+ }
+
+.new-tweet h2 {
+  margin-top: .5em;
+  width: 98%;
+  border-bottom: 1px solid black;
+}
+
+.new-tweet textarea {
+  display: block;
+  width: 98%;
+}
+
+.new-tweet input {
+  margin-top: .3em;
+}
+
+.new-tweet .counter {
+  float: right;
+  font-size: .8em;
+  margin-top: .5em;
+  margin-right: 1em;
+}

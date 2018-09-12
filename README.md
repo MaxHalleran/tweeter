@@ -18,4 +18,6 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Devlog
 
+v0.0.2 - Initial styling is finished. Now adding a character counter to the post creator
+
 v0.0.1 - Starting the project, first day of work
