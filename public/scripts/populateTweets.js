@@ -3,7 +3,7 @@
 /* eslint-env jquery */
 
 // Test / driver code (temporary). Eventually will get this from the server.
-const tweetData = {
+const newTweetData = {
   user: {
     name: 'Newton',
     avatars: {
@@ -53,7 +53,7 @@ $(document).ready(() => {
     return $tweet;
   };
 
-  const $tweet = createTweetElement(tweetData);
+  const $tweet = createTweetElement(newTweetData);
 
   // Test / driver code (temporary)
   $('#tweets-container').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
