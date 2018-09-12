@@ -26,9 +26,9 @@ body {
  */
 
  main.container {
-  width: 450px;
-  margin: 0 auto;
   background-color: white;
+  margin: 0 auto;
   position: relative;
   top: 70px;
+  width: 450px;
  }

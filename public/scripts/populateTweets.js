@@ -1,3 +1,7 @@
+/* eslint no-undef: "error" */
+/* eslint-env browser */
+/* eslint-env jquery */
+
 // Test / driver code (temporary). Eventually will get this from the server.
 const tweetData = {
   user: {
@@ -16,20 +20,14 @@ const tweetData = {
 };
 
 $(document).ready(() => {
-
   const createTweetElement = function createTweetElement(tweetData) {
+    const $tweet = $('<article>').addClass('tweet');
 
-    //This is the testing field where we run tests. Yeah. It's fieldy
-    console.log(tweetData);
-    console.log(tweetData.user.name);
-
-    var $tweet = $("<article>").addClass("tweet");
-
-    //Alright, now lets append everything to the tweet!
+    // Alright, now lets append everything to the tweet!
     $tweet.append(`
       <header>
         <div>
-          <img src='${tweetData.user.avatars.small}' alt='${tweetData.user.handle}\'s avatar'> <h3>${tweetData.user.name}</h3>
+          <img src='${tweetData.user.avatars.small}' alt='${tweetData.user.handle}'s avatar'> <h3>${tweetData.user.name}</h3>
         </div>
         <div>
           <p>${tweetData.user.handle}</p>
@@ -58,6 +56,5 @@ $(document).ready(() => {
   const $tweet = createTweetElement(tweetData);
 
   // Test / driver code (temporary)
-  console.log($tweet); // to see what it looks like
   $('#tweets-container').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
 });
