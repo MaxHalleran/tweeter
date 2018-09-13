@@ -41,8 +41,7 @@ $(document).ready(() => {
       </header>
 
       <div class="tweet-body solid">
-      <!-- need to fill in this p with user content -->
-        <p class='tweetContent'>${escapeHtml(tweetData.content.text)}</p>
+        <p>${escapeHtml(tweetData.content.text)}</p>
       </div>
 
       <footer>

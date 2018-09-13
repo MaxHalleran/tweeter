@@ -18,6 +18,8 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Devlog
 
+v0.1.0 - Tweeter is functional, user is able to tweet, the tweet feed updates automatically on submission and input is parsed of html elements. There is a noticeable lag when submitting tweets that I believe is added on purpose by the built in submission delay function. 
+
 v0.0.2 - Initial styling is finished. Now adding a character counter to the post creator
 
 v0.0.1 - Starting the project, first day of work
