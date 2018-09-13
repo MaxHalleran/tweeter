@@ -46,8 +46,9 @@
     <main class="container">
       <div class='empty'></div>
 
-      <section class="new-tweet">
+      <section class="new-tweet toggled">
         <h2>Compose Tweet</h2>
+        <p class='error'></p>
         <form action='/tweets' method='POST'>
           <textarea name="text" placeholder="What are you humming about?"></textarea>
           <input type="submit" value="Tweet">

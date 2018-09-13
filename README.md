@@ -25,3 +25,13 @@ v0.1.0 - Tweeter is functional, user is able to tweet, the tweet feed updates au
 v0.0.2 - Initial styling is finished. Now adding a character counter to the post creator
 
 v0.0.1 - Starting the project, first day of work
+
+## Focus
+
+-Tweets feel clunky being delivered
+-compose button needs some work
+-compose button functionality:
+  -hiding the 'new-tweet' element until the button is clicked
+  -smoothly making the 'new-tweet' element appear
+  -adding focus to the textarea in the new-tweet element
+-Html validation errors

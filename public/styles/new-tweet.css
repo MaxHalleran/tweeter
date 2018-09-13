@@ -30,3 +30,9 @@
   margin-top: .5em;
   margin-right: 1em;
 }
+
+.new-tweet .error {
+  margin: 0;
+  font-size: 1em;
+  color: red;
+}

@@ -78,16 +78,21 @@ $(document).ready(() => {
 
   loadTweets();
 
+  const tweetBlur = function tweetBlur() {
+    console.log('blur');
+  }
+
   const tweetSubmit = function tweetSubmit(event) {
     event.preventDefault();
+    $('.error').text('');
     const $tweetData = $('textarea', this).serialize();
     const $tweetDataText = $('textarea', this).val();
 
     if ($tweetDataText.length < 1) {
-      alert('Sorry, your message is empty');
+      $('.error').append('Your tweet was too short');
       return;
     } if ($tweetDataText.length > 140) {
-      alert('your message is too long!');
+      $('.error').append('Your tweet was too long');
       return;
     }
 
@@ -100,8 +105,12 @@ $(document).ready(() => {
       });
     loadTweets();
   };
+
   const $tweetForm = $('.new-tweet form');
   $tweetForm.on('submit', tweetSubmit);
+
+  const $tweetField = $('.new-tweet form textarea');
+  $tweetField.on('blur', tweetBlur);
 
   const toggleButton = function toggleButton(event) {
     console.log('clicked');
