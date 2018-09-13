@@ -1,6 +1,7 @@
 #nav-bar {
   background-color: #00a087;
   color: #e8fdff;
+  display: flex;
   height: 80px;
   padding: 0 2em;
   position: fixed;
@@ -23,4 +24,13 @@
   font-size: 2em;
   margin-left: 10px;
   line-height: 2;
+}
+
+#nav-bar div {
+  flex-grow: 1;
+  width: 50%;
+}
+
+#nav-bar button {
+  float: right;
 }

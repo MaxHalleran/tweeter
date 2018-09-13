@@ -2,28 +2,10 @@
 /* eslint-env browser */
 /* eslint-env jquery */
 
-// Test / driver code (temporary). Eventually will get this from the server.
-const newTweetData = {
-  user: {
-    name: 'Newton',
-    avatars: {
-      small: 'https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png',
-      regular: 'https://vanillicon.com/788e533873e80d2002fa14e1412b4188.png',
-      large: 'https://vanillicon.com/788e533873e80d2002fa14e1412b4188_200.png',
-    },
-    handle: '@SirIsaac',
-  },
-  content: {
-    text: 'If I have seen further it is by standing on the shoulders of giants',
-  },
-  created_at: 1461116232227,
-};
-
-$(document).ready(() => {
+$(document).ready(function populateTweets() {
   const createTweetElement = function createTweetElement(tweetData) {
     const $tweet = $('<article>').addClass('tweet');
 
-    // Alright, now lets append everything to the tweet!
     $tweet.append(`
       <header>
         <div>
@@ -53,8 +35,17 @@ $(document).ready(() => {
     return $tweet;
   };
 
-  const $tweet = createTweetElement(newTweetData);
+  function renderTweets(tweets) {
+  // loops through tweets
+    // calls createTweetElement for each tweet
+    for (const tweetData of tweets) {
+      const newTweet = createTweetElement(tweetData);
+      // takes return value and appends it to the tweets container
+      $('#tweets-container').append(newTweet);
+    }
+  }
 
-  // Test / driver code (temporary)
-  $('#tweets-container').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
+  renderTweets('data');
 });
+
+modules.export = populateTweets;
