@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
     <link rel="stylesheet" href="/styles/tweets.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/formToggle.css" type="text/css" />
 
     <!-- External JS -->
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
@@ -30,19 +31,20 @@
     <!-- Top nav bar (fixed) -->
     <nav id="nav-bar">
       <div>
-      <img class="logo" src="/images/bird.png">
-      <span class="header">Tweeter</span>
-      <div>
-        <!-- <div>
-          <button id="compose">
-            Compose
-          </button>
-        </div> -->
+        <img class="logo" src="/images/bird.png">
+        <span class="header">Tweeter</span>
+      </div>
+      <div class="float-right">
+        <button id="compose">
+          Compose
+        </button>
+      </div>
     </nav>
 
     <!-- Page-specific (main) content here -->
 
     <main class="container">
+      <div class='empty'></div>
 
       <section class="new-tweet">
         <h2>Compose Tweet</h2>

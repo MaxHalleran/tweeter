@@ -13,7 +13,7 @@ $(document).ready(() => {
     const $tweet = $('<article>').addClass('tweet');
 
     // xss prevention function
-    let entityMap = {
+    const entityMap = {
       '&': '&amp;',
       '<': '&lt;',
       '>': '&gt;',
@@ -21,7 +21,7 @@ $(document).ready(() => {
       "'": '&#39;',
       '/': '&#x2F;',
       '`': '&#x60;',
-      '=': '&#x3D;'
+      '=': '&#x3D;',
     };
 
     function escapeHtml (string) {
@@ -95,11 +95,19 @@ $(document).ready(() => {
       method: 'POST',
       data: $tweetData,
     })
-      .then((tweets) => {
+      .then(() => {
         $('textarea', this).val('');
       });
     loadTweets();
   };
   const $tweetForm = $('.new-tweet form');
   $tweetForm.on('submit', tweetSubmit);
+
+  const toggleButton = function toggleButton(event) {
+    console.log('clicked');
+    $('.new-tweet').toggleClass('toggle');
+  };
+
+  const $composeButton = $('#compose');
+  $composeButton.on('click', toggleButton);
 });

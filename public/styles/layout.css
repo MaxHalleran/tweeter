@@ -29,6 +29,10 @@ body {
   background-color: white;
   margin: 0 auto;
   position: relative;
-  top: 70px;
+
   width: 450px;
  }
+
+.empty {
+  height: 70px;
+}
