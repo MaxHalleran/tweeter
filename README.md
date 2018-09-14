@@ -11,6 +11,16 @@ This repository is the starter code for the project: Students will fork and clon
 3. Start the web server using the `npm run local` command. The app will be served at <http://localhost:8080/>.
 4. Go to <http://localhost:8080/> in your browser.
 
+## Screenshots
+
+!['The Tweeter Application'](https://github.com/MaxHalleran/tweeter/blob/master/docs/better_definition.png?raw=true)
+
+!['Tweeter main page'](https://github.com/MaxHalleran/tweeter/blob/master/docs/front_page.png?raw=true)
+
+!['A tweet'](https://github.com/MaxHalleran/tweeter/blob/master/docs/single_tweet.png?raw=true)
+
+!['The tweeting box'](https://github.com/MaxHalleran/tweeter/blob/master/docs/tweeting_form.png?raw=true)
+
 ## Dependencies
 
 - Express
