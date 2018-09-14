@@ -36,3 +36,22 @@ body {
 .empty {
   height: 70px;
 }
+
+.error-container {
+  color: red;
+  display: flex;
+  height: 15px;
+  justify-content: center;
+  font-size: 1em;
+  padding-top: .5em;
+  padding-bottom: .5em;
+}
+
+.error-container-p {
+  font-weight: bold;
+}
+
+.error-false {
+  display: none;
+  padding: 0;
+}

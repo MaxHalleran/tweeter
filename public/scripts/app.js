@@ -84,15 +84,23 @@ $(document).ready(() => {
 
   const tweetSubmit = function tweetSubmit(event) {
     event.preventDefault();
-    $('.error').text('');
+    $('.error-container-p').text('');
+    $('error-container').addClass('error-false');
+    console.log($('error-container'));
+    if ($('.error-container').hasClass('error-false')) {
+      console.log('error-false');
+    };
     const $tweetData = $('textarea', this).serialize();
     const $tweetDataText = $('textarea', this).val();
 
     if ($tweetDataText.length < 1) {
-      $('.error').append('Your tweet was too short');
+      console.log('too short');
+      $('.error-container').removeClass('error-false');
+      $('.error-container-p').append('Your tweet was too short');
       return;
     } if ($tweetDataText.length > 140) {
-      $('.error').append('Your tweet was too long');
+      $('.error-container-p').removeClass('error-false');
+      $('.error-container-p').append('Your tweet was too long');
       return;
     }
 
@@ -115,7 +123,10 @@ $(document).ready(() => {
 
   const toggleButton = function toggleButton(event) {
     console.log('clicked');
-    $('.new-tweet').toggleClass('toggle');
+    $('section.new-tweet').slideToggle('slow', function() {
+    $('.new-tweet textarea').focus();
+    });
+    // $('.new-tweet').toggleClass('toggle');
   };
 
   const $composeButton = $('#compose');

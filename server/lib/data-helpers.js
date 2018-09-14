@@ -10,25 +10,10 @@ module.exports = function makeDataHelpers(db) {
       callback(null, true);
     },
 
-    // simulateDelay(() => {
-    //   db.tweets.push(newTweet);
-    //   callback(null, true);
-    // });
-
-    // Get all tweets in `db`, sorted by newest first
-    // refactoring the code to use mongodb
     getTweets: function(callback) {
-       const sortNewestFirst = (a, b) => a.created_at - b.created_at;
-       console.log('getTweets fired');
-       db.collection('tweets').find().toArray(callback);
+      const sortNewestFirst = (a, b) => a.created_at - b.created_at;
+      console.log('getTweets fired');
+      db.collection('tweets').find().toArray(callback);
     }
-
-    // getTweets: function(callback) {
-    //   simulateDelay(() => {
-    //     const sortNewestFirst = (a, b) => a.created_at - b.created_at;
-    //     callback(null, db.tweets.sort(sortNewestFirst));
-    //   });
-    // }
-
   };
 };

@@ -3,10 +3,10 @@
   border: 0.063em solid #d6d6d6;
   border-radius: 5px;
   margin: 2em;
+  margin-top: 1;
   padding: 0 0 0.5em 0.5em;
   overflow: hidden;
   display: none;
-  height: 0;
  }
 
 .new-tweet h2 {
@@ -29,10 +29,4 @@
   font-size: .8em;
   margin-top: .5em;
   margin-right: 1em;
-}
-
-.new-tweet .error {
-  margin: 0;
-  font-size: 1em;
-  color: red;
 }

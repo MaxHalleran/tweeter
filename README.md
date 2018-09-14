@@ -30,11 +30,11 @@ v0.0.1 - Starting the project, first day of work
 
 ## Focus
 
--compose button needs some work
--compose button functionality:
-  -hiding the 'new-tweet' element until the button is clicked
-  -smoothly making the 'new-tweet' element appear
-  -adding focus to the text area in the new-tweet element
--Html validation errors cleanup
--redirect when 'url/tweets' is accessed
 -close db at end of process
+-add date tracking functionality
+-when tweet is submitted, the entire tweet list is fetched and added
+
+
+## Dates
+
+-So the problem is that we cant require moment on the client side. Therefore we have to pass either the function that we need to where we need to parse the date or pass the date through the server before sending it.

@@ -1,3 +1,7 @@
+/*
+These are the styles for the nav bar including the compose button. In this project, nav-bar and the compose button were given id's due to the size of this single page project however I followed my natural inclination to treat these id's as classes and keep everything overly specific
+*/
+
 #nav-bar {
   background-color: #00a087;
   color: #e8fdff;
@@ -37,5 +41,15 @@
 #nav-bar #compose {
   -ms-align-items: center;
   align-items: center;
-  height: 50%;
+  border: 1px solid black;
+  border-radius: .4em;
+  color: #00a087;
+  height: 70%;
+  opacity: 0.8;
+  font-size: 1.1em;
+}
+
+#nav-bar #compose:hover {
+  color: black;
+  opacity: 1;
 }
