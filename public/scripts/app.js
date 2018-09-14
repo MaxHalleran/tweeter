@@ -4,6 +4,67 @@
 
 // This sets event listeners and handlers throughout the page
 $(document).ready(() => {
+  const myMoment = function myMoment(time) {
+    let returnTime = (Date.now() - time) / 1000;
+    const timeStamp = {
+      year: 0,
+      month: 0,
+      day: 0,
+      hour: 0,
+      minute: 0,
+      second: 0,
+    }
+
+    while (returnTime > 31104000) {
+      timeStamp.year += 1;
+      returnTime -= 31104000;
+    }
+
+    while (returnTime > 2592000) {
+      timeStamp.month += 1;
+      returnTime -= 2592000;
+    }
+
+    while (returnTime > 86400) {
+      timeStamp.day += 1;
+      returnTime -= 86400;
+    }
+
+    while (returnTime > 3600) {
+      timeStamp.hour += 1;
+      returnTime -= 3600;
+    }
+
+    while (returnTime > 60) {
+      timeStamp.minute += 1;
+      returnTime -= 60;
+    }
+
+    while (returnTime > 1) {
+      timeStamp.second += 1;
+      returnTime -= 1;
+    }
+
+    return timeStamp;
+  }
+
+  const timeStamper = function timeStamper(date) {
+    const moment = myMoment(date);
+    if (moment.year) {
+      return `${ moment.year } year${ moment.year === 1 ? '' : 's' } ago`;
+    } else if (moment.month) {
+      return `${ moment.month } month${ moment.month === 1 ? '' : 's' } ago`;
+    } else if (moment.day) {
+      return `${ moment.day } day${ moment.day === 1 ? '' : 's' } ago`;
+    } else if (moment.hour) {
+      return `${ moment.hour } hour${ moment.hour === 1 ? '' : 's' } ago`;
+    } else if (moment.minute) {
+      return `${ moment.minute } minute${ moment.minute === 1 ? '' : 's' } ago`;
+    } else {
+      return 'a few seconds ago';
+    }
+  };
+
   const createTweetElement = function createTweetElement(tweetData) {
     const $tweet = $('<article>').addClass('tweet');
 
@@ -41,7 +102,7 @@ $(document).ready(() => {
 
       <footer>
         <div>
-          <p class="solid">${escapeHtml(tweetData.created_at)}</p>
+          <p class="solid">${timeStamper(tweetData.created_at)}</p>
         </div>
         <div class="icons">
           <img src="/images/glyphicons-13-heart.png" alt="heart">
@@ -57,7 +118,6 @@ $(document).ready(() => {
   function renderTweets(tweets, num) {
     if (num !== undefined) {
       const newTweet = createTweetElement(tweets[tweets.length - 1]);
-      console.log(newTweet);
       $('#tweets-container').prepend(newTweet);
     } else {
       for (const tweetData of tweets) {
@@ -73,7 +133,6 @@ $(document).ready(() => {
         if (num === undefined) {
         renderTweets(tweets);
       } else {
-        console.log('hmmmm.... interesting');
         renderTweets(tweets, num);
       }
       });
@@ -107,7 +166,6 @@ $(document).ready(() => {
       .then(() => {
         $('textarea', this).val('');
         $('.counter').val(140);
-        // We need to add the tweet to the tweet field at real time. $tweetData didnt work so... we have to ajax request to get the information stored in the server and bring back the first element.
         loadTweets(0);
       });
   };

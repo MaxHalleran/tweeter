@@ -33,7 +33,9 @@ v0.0.1 - Starting the project, first day of work
 ## Focus
 
 -add date tracking functionality
+-html error needs to disappear when compose button is pressed
 
 ## Dates
 
--So the problem is that we cant require moment on the client side. Therefore we have to pass either the function that we need to where we need to parse the date or pass the date through the server before sending it.
+-So we are creating our own datestamping function that is going to take the current date, minus the date created at and then run the result through a function that will sort the time into time segments ie seconds, minutes, hours, days, months and years ago.
+And anything under 5 minutes will be represented by ' a few moments ago'. Anything under a minute will be represented by 'a few seconds ago'.
