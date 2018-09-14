@@ -18,6 +18,8 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Devlog
 
+v0.8.0 - Tweeter now uses a database (MongoDB) to store tweets and preserve them while offline.
+
 v0.1.1 - Tweeter compose button is ~functional. Tweets seem to be getting stuck 'in the pipe' and I will need to revisit the refetching of tweets.
 
 v0.1.0 - Tweeter is functional, user is able to tweet, the tweet feed updates automatically on submission and input is parsed of html elements. There is a noticeable lag when submitting tweets that I believe is added on purpose by the built in submission delay function.
@@ -28,10 +30,11 @@ v0.0.1 - Starting the project, first day of work
 
 ## Focus
 
--Tweets feel clunky being delivered
 -compose button needs some work
 -compose button functionality:
   -hiding the 'new-tweet' element until the button is clicked
   -smoothly making the 'new-tweet' element appear
-  -adding focus to the textarea in the new-tweet element
--Html validation errors
+  -adding focus to the text area in the new-tweet element
+-Html validation errors cleanup
+-redirect when 'url/tweets' is accessed
+-close db at end of process

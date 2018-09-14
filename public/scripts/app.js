@@ -102,6 +102,7 @@ $(document).ready(() => {
     })
       .then(() => {
         $('textarea', this).val('');
+        $('.counter').val(140);
       });
     loadTweets();
   };
