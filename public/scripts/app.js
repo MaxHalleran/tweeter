@@ -2,12 +2,7 @@
 /* eslint-env browser */
 /* eslint-env jquery */
 
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
-
+// This sets event listeners and handlers throughout the page
 $(document).ready(() => {
   const createTweetElement = function createTweetElement(tweetData) {
     const $tweet = $('<article>').addClass('tweet');
@@ -59,42 +54,43 @@ $(document).ready(() => {
     return $tweet;
   };
 
-  function renderTweets(tweets) {
-  // loops through tweets
-    // calls createTweetElement for each tweet
-    for (const tweetData of tweets) {
-      const newTweet = createTweetElement(tweetData);
-      // takes return value and appends it to the tweets container
+  function renderTweets(tweets, num) {
+    if (num !== undefined) {
+      const newTweet = createTweetElement(tweets[tweets.length - 1]);
+      console.log(newTweet);
       $('#tweets-container').prepend(newTweet);
+    } else {
+      for (const tweetData of tweets) {
+        const newTweet = createTweetElement(tweetData);
+          $('#tweets-container').prepend(newTweet);
+      }
     }
   }
 
-  function loadTweets() {
+  function loadTweets(num) {
     $.ajax('tweets', { method: 'GET' })
       .then((tweets) => {
+        if (num === undefined) {
         renderTweets(tweets);
+      } else {
+        console.log('hmmmm.... interesting');
+        renderTweets(tweets, num);
+      }
       });
   }
 
   loadTweets();
 
-  const tweetBlur = function tweetBlur() {
-    console.log('blur');
-  }
-
   const tweetSubmit = function tweetSubmit(event) {
     event.preventDefault();
     $('.error-container-p').text('');
     $('error-container').addClass('error-false');
-    console.log($('error-container'));
     if ($('.error-container').hasClass('error-false')) {
-      console.log('error-false');
     };
     const $tweetData = $('textarea', this).serialize();
     const $tweetDataText = $('textarea', this).val();
 
     if ($tweetDataText.length < 1) {
-      console.log('too short');
       $('.error-container').removeClass('error-false');
       $('.error-container-p').append('Your tweet was too short');
       return;
@@ -111,22 +107,18 @@ $(document).ready(() => {
       .then(() => {
         $('textarea', this).val('');
         $('.counter').val(140);
+        // We need to add the tweet to the tweet field at real time. $tweetData didnt work so... we have to ajax request to get the information stored in the server and bring back the first element.
+        loadTweets(0);
       });
-    loadTweets();
   };
 
   const $tweetForm = $('.new-tweet form');
   $tweetForm.on('submit', tweetSubmit);
 
-  const $tweetField = $('.new-tweet form textarea');
-  $tweetField.on('blur', tweetBlur);
-
   const toggleButton = function toggleButton(event) {
-    console.log('clicked');
     $('section.new-tweet').slideToggle('slow', function() {
     $('.new-tweet textarea').focus();
     });
-    // $('.new-tweet').toggleClass('toggle');
   };
 
   const $composeButton = $('#compose');

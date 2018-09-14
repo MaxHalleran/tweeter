@@ -22,7 +22,7 @@ $(document).ready(() => {
     }
   });
 
-  // the second keycounting function to catch pasting messages
+  // the second keycounting function to catch copy-pasting messages
   $('.new-tweet form textarea').on('blur', function keyCount() {
     const counter = $('.new-tweet form span.counter');
     counter.text(numberTracker(this.value.length));

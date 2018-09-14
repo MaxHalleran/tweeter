@@ -18,6 +18,8 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Devlog
 
+v0.9.0 - Minute changes focused on polishing tweeter and reaching version 1
+
 v0.8.0 - Tweeter now uses a database (MongoDB) to store tweets and preserve them while offline.
 
 v0.1.1 - Tweeter compose button is ~functional. Tweets seem to be getting stuck 'in the pipe' and I will need to revisit the refetching of tweets.
@@ -30,10 +32,7 @@ v0.0.1 - Starting the project, first day of work
 
 ## Focus
 
--close db at end of process
 -add date tracking functionality
--when tweet is submitted, the entire tweet list is fetched and added
-
 
 ## Dates
 
