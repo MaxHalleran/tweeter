@@ -1,4 +1,4 @@
-# Tweeter Project v0.9.2
+# Tweeter Project v1.0.0
 
 Tweeter is a simple, single-page Twitter clone.
 
@@ -20,6 +20,8 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Devlog
 
+v1.0.0 - Tweeter now has full base functionality. Updates with increased capability are incoming.
+
 v0.9.0 - Minute changes focused on polishing tweeter and reaching version 1
 
 v0.8.0 - Tweeter now uses a database (MongoDB) to store tweets and preserve them while offline.
@@ -31,7 +33,3 @@ v0.1.0 - Tweeter is functional, user is able to tweet, the tweet feed updates au
 v0.0.2 - Initial styling is finished. Now adding a character counter to the post creator
 
 v0.0.1 - Starting the project, first day of work
-
-## Focus
-
--retweet, like and flag links

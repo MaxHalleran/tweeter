@@ -4,6 +4,7 @@
 
 // This sets event listeners and handlers throughout the page
 $(document).ready(() => {
+  // myMoment translates unix date stamps into a time object
   const myMoment = function myMoment(time) {
     let returnTime = (Date.now() - time) / 1000;
     const timeStamp = {
@@ -48,6 +49,7 @@ $(document).ready(() => {
     return timeStamp;
   }
 
+  // timeStamper processes myMoments into a string telling when a post was posted
   const timeStamper = function timeStamper(date) {
     const moment = myMoment(date);
     if (moment.year) {
@@ -65,6 +67,8 @@ $(document).ready(() => {
     }
   };
 
+  // createTweetElement escapes html characters and builds a tweet
+  // from the gorund up with the proper formatting
   const createTweetElement = function createTweetElement(tweetData) {
     const $tweet = $('<article>').addClass('tweet');
 
@@ -115,6 +119,9 @@ $(document).ready(() => {
     return $tweet;
   };
 
+  // renderTweets passes either the entire list of tweets at load up
+  // or the last passed tweet to be processed into tweets and then
+  // prepends them onto the page
   function renderTweets(tweets, num) {
     if (num !== undefined) {
       const newTweet = createTweetElement(tweets[tweets.length - 1]);
@@ -127,6 +134,8 @@ $(document).ready(() => {
     }
   }
 
+  // loadTweets loads the tweets and passes them to renderTweets.
+  // Num here is to signify that we want the last item only
   function loadTweets(num) {
     $.ajax('tweets', { method: 'GET' })
       .then((tweets) => {
@@ -140,6 +149,8 @@ $(document).ready(() => {
 
   loadTweets();
 
+  // tweetSubmit gets called when the tweet form gets submitted.
+  // it passes the tweet content and processes the request into a tweet
   const tweetSubmit = function tweetSubmit(event) {
     event.preventDefault();
 
@@ -173,6 +184,7 @@ $(document).ready(() => {
   const $tweetForm = $('.new-tweet form');
   $tweetForm.on('submit', tweetSubmit);
 
+  // this just controls the compose button
   const toggleButton = function toggleButton(event) {
     $('.error-container').addClass('error-false');
     $('section.new-tweet').slideToggle('slow', function() {
