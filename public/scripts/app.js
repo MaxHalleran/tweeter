@@ -131,10 +131,10 @@ $(document).ready(() => {
     $.ajax('tweets', { method: 'GET' })
       .then((tweets) => {
         if (num === undefined) {
-        renderTweets(tweets);
-      } else {
-        renderTweets(tweets, num);
-      }
+          renderTweets(tweets);
+        } else {
+          renderTweets(tweets, num);
+        }
       });
   }
 
@@ -142,10 +142,10 @@ $(document).ready(() => {
 
   const tweetSubmit = function tweetSubmit(event) {
     event.preventDefault();
+
     $('.error-container-p').text('');
     $('error-container').addClass('error-false');
-    if ($('.error-container').hasClass('error-false')) {
-    };
+
     const $tweetData = $('textarea', this).serialize();
     const $tweetDataText = $('textarea', this).val();
 
@@ -174,6 +174,7 @@ $(document).ready(() => {
   $tweetForm.on('submit', tweetSubmit);
 
   const toggleButton = function toggleButton(event) {
+    $('.error-container').addClass('error-false');
     $('section.new-tweet').slideToggle('slow', function() {
     $('.new-tweet textarea').focus();
     });

@@ -1,4 +1,4 @@
-# Tweeter Project v0.0.1
+# Tweeter Project v0.9.2
 
 Tweeter is a simple, single-page Twitter clone.
 
@@ -15,6 +15,8 @@ This repository is the starter code for the project: Students will fork and clon
 
 - Express
 - Node 5.10.x or above
+- Body-parser 1.15 or above
+- Mongodb 2.2
 
 ## Devlog
 
@@ -32,10 +34,4 @@ v0.0.1 - Starting the project, first day of work
 
 ## Focus
 
--add date tracking functionality
--html error needs to disappear when compose button is pressed
-
-## Dates
-
--So we are creating our own datestamping function that is going to take the current date, minus the date created at and then run the result through a function that will sort the time into time segments ie seconds, minutes, hours, days, months and years ago.
-And anything under 5 minutes will be represented by ' a few moments ago'. Anything under a minute will be represented by 'a few seconds ago'.
+-retweet, like and flag links
