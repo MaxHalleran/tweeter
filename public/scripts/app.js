@@ -2,6 +2,8 @@
 /* eslint-env browser */
 /* eslint-env jquery */
 
+$(document).ready(() => {});
+
 // This sets event listeners and handlers throughout the page
 $(document).ready(() => {
   // myMoment translates unix date stamps into a time object
@@ -14,7 +16,7 @@ $(document).ready(() => {
       hour: 0,
       minute: 0,
       second: 0,
-    }
+    };
 
     while (returnTime > 31104000) {
       timeStamp.year += 1;
@@ -47,21 +49,21 @@ $(document).ready(() => {
     }
 
     return timeStamp;
-  }
+  };
 
   // timeStamper processes myMoments into a string telling when a post was posted
   const timeStamper = function timeStamper(date) {
     const moment = myMoment(date);
     if (moment.year) {
-      return `${ moment.year } year${ moment.year === 1 ? '' : 's' } ago`;
+      return `${moment.year} year${moment.year === 1 ? '' : 's'} ago`;
     } else if (moment.month) {
-      return `${ moment.month } month${ moment.month === 1 ? '' : 's' } ago`;
+      return `${moment.month} month${moment.month === 1 ? '' : 's'} ago`;
     } else if (moment.day) {
-      return `${ moment.day } day${ moment.day === 1 ? '' : 's' } ago`;
+      return `${moment.day} day${moment.day === 1 ? '' : 's'} ago`;
     } else if (moment.hour) {
-      return `${ moment.hour } hour${ moment.hour === 1 ? '' : 's' } ago`;
+      return `${moment.hour} hour${moment.hour === 1 ? '' : 's'} ago`;
     } else if (moment.minute) {
-      return `${ moment.minute } minute${ moment.minute === 1 ? '' : 's' } ago`;
+      return `${moment.minute} minute${moment.minute === 1 ? '' : 's'} ago`;
     } else {
       return 'a few seconds ago';
     }
@@ -84,8 +86,8 @@ $(document).ready(() => {
       '=': '&#x3D;',
     };
 
-    function escapeHtml (string) {
-      return String(string).replace(/[&<>"'`=\/]/g, function (s) {
+    function escapeHtml(string) {
+      return String(string).replace(/[&<>"'`=\/]/g, (s) => {
         return entityMap[s];
       });
     }
@@ -109,7 +111,7 @@ $(document).ready(() => {
           <p class="solid">${timeStamper(tweetData.created_at)}</p>
         </div>
         <div class="icons">
-          <img src="/images/glyphicons-13-heart.png" alt="heart">
+          <img src="/images/glyphicons-13-heart.png" alt="heart" class="like-button" data-likes="false" data-id='${tweetData._id}'>
           <img src="/images/glyphicons-81-retweet.png" alt="retweet">
           <img src="/images/glyphicons-267-flag.png" alt="flag">
         </div>
@@ -184,7 +186,6 @@ $(document).ready(() => {
   const $tweetForm = $('.new-tweet form');
   $tweetForm.on('submit', tweetSubmit);
 
-  // this just controls the compose button
   const toggleButton = function toggleButton(event) {
     $('.error-container').addClass('error-false');
     $('section.new-tweet').slideToggle('slow', function() {
@@ -194,4 +195,32 @@ $(document).ready(() => {
 
   const $composeButton = $('#compose');
   $composeButton.on('click', toggleButton);
+
+  // the like button section. Currently being worked on.
+
+  // const likeButton = function likeButton(event) {
+  //   console.log($(event.target).data().id);
+  //   // placeholder textarea
+  //
+  //   // $(event.target).data().id;
+  //
+  //   console.log($(event.target).data('likes'));
+  //
+  //   const $tweetData = $('textarea', this).serialize();
+  //   const $tweetDataText = $('textarea', this).val();
+  //
+  //   $.ajax('tweets', {
+  //     method: 'PUT',
+  //     data: // not here yet, ,
+  //   })
+  //     .then(() => {
+  //       $('textarea', this).val('');
+  //       $('.counter').val(140);
+  //       loadTweets(0);
+  //     });
+  //   // placeholder text
+  // };
+  //
+  // const $likeableButton = $('#tweets-container');
+  // $likeableButton.on('click', likeButton);
 });

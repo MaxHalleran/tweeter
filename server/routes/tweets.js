@@ -41,5 +41,11 @@ module.exports = function (DataHelpers) {
     });
   });
 
+  tweetsRoutes.put('/', (req, res) => {
+    // this is the 'liking' Route
+    console.log('liked!');
+    console.log('Yeah, we know it doesn\'t mean much if no one can see it');
+  });
+
   return tweetsRoutes;
 };

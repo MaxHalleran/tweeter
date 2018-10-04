@@ -43,3 +43,14 @@ v0.1.0 - Tweeter is functional, user is able to tweet, the tweet feed updates au
 v0.0.2 - Initial styling is finished. Now adding a character counter to the post creator
 
 v0.0.1 - Starting the project, first day of work
+
+## Focus
+
+likes - enable users to 'like tweets' and store the number of unique likes on a single tweet persistantly.
+like data attribute - the like data attribute is needed to not have to update the web page from liking a tweet and to enable 'unliking'.
+like id data attribute - the like button should have a unique id (the id from the database) held in a data attribute to query it from the database.
+like events - the click event has to be bound to each like button after it's created, currently this is the biggest hurdle. Creating a listener that activates whenever a like button within the tweet container is clicked is a good way around this.
+like db - likes should send a put request to the server which stores either a 'like' or a 'dislike' in the tweets database entry. These likes will be a collection of the ids of the users that liked them and a second request will remove their id from the list. Users cannot like their own tweets, their id will be stored as position 0 of the array that holds the liked users and cannot be removed. Total likes will be calculated from the length of the array. This feature will only be added when users are added.
+
+
+names - names are pushed to the next line when they are too long
